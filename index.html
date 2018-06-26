@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.ajax {
+			font-size: 2em;
+			color: green;
+		}
+
+		.error {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+This is data getted with AJAX:
+<div class="result"></div>
+<div class="console"></div>
+
+<script src="../js/jquery.min.js"></script>
+<script>
+	$.get( "https://geocode-maps.yandex.ru/1.x/?geocode=Москва&format=json", function () {
+		// success
+	} ).done( function ( data ) {
+		// success
+		$( ".result" ).html( data );
+	} )
+	 .fail( function () {
+		 $( ".result" ).html( '<div class="error">Fail!</div>' );
+	 } )
+	 .always( function () {
+		 $( ".console" ).html( 'done.' );
+	 } );
+</script>
+</body>
+</html>
